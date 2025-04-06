@@ -6,6 +6,63 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+
+    <script>
+
+        // Prompt user for their move (rock, paper, or scissors)
+        // If user's inputs invalid response, prompt for another response
+        // After selecting a valid response, store user's move
+        // ranodomly generate computer's move
+        // Compare user's move against computer's move
+        // Display computer's move and who won the round.
+        // EX: "User chose rock and computer chose paper. USER WINS"
+
+        function game() {
+            // Prompt the user for their choice
+            let userChoice = prompt("Select your move: (1) Rock (2) Paper (3) Scissors");
+
+            // store the user's choice and account for all outcomes
+            if (userChoice == 1) {
+                userChoice = "Rock";
+                console.log(userChoice);
+            } else if (userChoice == 2) {
+                userChoice = "Paper";
+                console.log(userChoice);
+            } else if (userChoice == 3) {
+                userChoice ="Scissors";
+                console.log(userChoice);
+            } else {
+                alert("invalid response, select between (1) Rock (2) Paper (3) Scissors");
+                console.log(userChoice);
+            }
+
+            // function for getting a random number between two integers
+            function randomIntFromInterval(min, max) { // min and max included 
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+
+            // computer randomly gets a number from 1 - 3
+            let computerChoice = randomIntFromInterval(1, 6);
+            console.log(computerChoice);
+
+            // assigning the computers number to a choice (rock, paper, or scissors)
+            if (computerChoice == 1) {
+                computerChoice = "Rock";
+                console.log(computerChoice);
+            } else if (computerChoice == 2) {
+                computerChoice = "Paper";
+                console.log(computerChoice);
+            } else {
+                computerChoice = "Scissors";
+                console.log(computerChoice);
+            }
+
+
+        }
+
+        game();
+        console.log("Hello World");
+    </script>
     
 </body>
 </html>
