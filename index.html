@@ -7,110 +7,26 @@
 </head>
 <body>
 
-    <script>
 
-        // Prompt user for their move (rock, paper, or scissors)
-        // If user's inputs invalid response, prompt for another response
-        // After selecting a valid response, store user's move
-        // ranodomly generate computer's move
-        // Compare user's move against computer's move
-        // Display computer's move and who won the round.
-        // EX: "User chose rock and computer chose paper. USER WINS
+    <div id="score-container">Score: 
+        <span id="playerScore">0</span> - 
+        <span id="computerScore">0</span>
+    </div>
 
-        // Keep track of score
-        // Display current score at the end of the round.
-        // Continue playing until 5 rounds.
+    <div id="player-selections">You chose: 
+        <span id="playerChose"> </span> | Computer chose: 
+        <span id="computerChose"> </span>
+    </div>
 
-        function game() {
-            
-            // Keep track of the player and computer score
-            let playerScore = Number(0);
-            let computerScore = Number(0);
-            const winningScore = Number(5);
+    <div class="buttons">
+        <button id="rock" class="btn">Rock</button>
+        <button id="paper" class="btn">Paper</button>
+        <button id="scissors" class="btn">Scissors</button>
+    </div>
+    
+   
 
-            // loop through the game until either the player wins or the computer wins
-            while (playerScore < winningScore && computerScore < winningScore) {
-
-            
-
-                // Prompt the user for their choice
-                let userChoice = prompt("Select your move: (1) Rock (2) Paper (3) Scissors");
-
-                console.log("User selected: " + userChoice);
-                // store the user's choice and account for all outcomes
-                if (userChoice == 1) {
-                    userChoice = "Rock";
-                    console.log("After conversion: " +userChoice);
-                } else if (userChoice == 2) {
-                    userChoice = "Paper";
-                    console.log("After conversion: " +userChoice);
-                } else if (userChoice == 3) {
-                    userChoice ="Scissors";
-                    console.log("After conversion: " +userChoice);
-                } else {
-                    alert("invalid response, select between (1) Rock (2) Paper (3) Scissors");
-                    console.log(userChoice);
-                    return;
-                }
-
-                // function for getting a random number between two integers
-                function randomIntFromInterval(min, max) { // min and max included 
-                    return Math.floor(Math.random() * (max - min + 1) + min);
-                }
-
-                // computer randomly gets a number from 1 - 3
-                let computerChoice = randomIntFromInterval(1, 3);
-                console.log("Before number conversion, the rand number for the computer is " + computerChoice);
-
-                // assigning the computers number to a choice (rock, paper, or scissors)
-                if (computerChoice == 1) {
-                    computerChoice = "Rock";
-                    console.log("After conversion: " +computerChoice);
-                } else if (computerChoice == 2) {
-                    computerChoice = "Paper";
-                    console.log("After conversion: " +computerChoice);
-                } else {
-                    computerChoice = "Scissors";
-                    console.log("After conversion: " + computerChoice);
-                }
-
-                // Compare the user's choice and the computer's choice
-                // Display all winning, losing, and tie outcomes
-
-                if ((userChoice === "Rock") && (computerChoice === "Scissors")) {
-                    playerScore++;
-                    alert("USER CHOSE: " + userChoice + "\nCOMPUTER CHOSE: " + computerChoice + "\nUSER WINS" + `\nUSER SCORE: ${playerScore}\nCOMPUTER SCORE: ${computerScore}`);
-                } else if ((userChoice === "Rock") && (computerChoice === "Rock")) {
-                    alert("USER CHOSE: " + userChoice + "\nCOMPUTER CHOSE: " + computerChoice + "\nTIE" + `\nUSER SCORE: ${playerScore}\nCOMPUTER SCORE: ${computerScore}`);
-                } else if ((userChoice === "Rock") && (computerChoice === "Paper")) {
-                    computerScore++;
-                    alert("USER CHOSE: " + userChoice + "\nCOMPUTER CHOSE: " + computerChoice + "\nCOMPUTER WINS" + `\nUSER SCORE: ${playerScore}\nCOMPUTER SCORE: ${computerScore}`);
-                } else if ((userChoice === "Paper") && (computerChoice === "Scissors")) {
-                    computerScore++;
-                    alert("USER CHOSE: " + userChoice + "\nCOMPUTER CHOSE: " + computerChoice + "\nCOMPUTER WINS" + `\nUSER SCORE: ${playerScore}\nCOMPUTER SCORE: ${computerScore}`);
-                } else if ((userChoice === "Paper") && (computerChoice === "Rock")) {
-                    playerScore++;
-                    alert("USER CHOSE: " + userChoice + "\nCOMPUTER CHOSE: " + computerChoice + "\nUSER WINS" + `\nUSER SCORE: ${playerScore}\nCOMPUTER SCORE: ${computerScore}`);
-                } else if ((userChoice === "Paper") && (computerChoice === "Paper")) {
-                    alert("USER CHOSE: " + userChoice + "\nCOMPUTER CHOSE: " + computerChoice + "\nTIE" + `\nUSER SCORE: ${playerScore}\nCOMPUTER SCORE: ${computerScore}`);
-                } else if ((userChoice === "Scissors") && (computerChoice === "Scissors")) {
-                    alert("USER CHOSE: " + userChoice + "\nCOMPUTER CHOSE: " + computerChoice + "\nTIE" + `\nUSER SCORE: ${playerScore}\nCOMPUTER SCORE: ${computerScore}`);
-                } else if ((userChoice === "Scissors") && (computerChoice === "Rock")) {
-                    computerScore++;
-                    alert("USER CHOSE: " + userChoice + "\nCOMPUTER CHOSE: " + computerChoice + "\nCOMPUTER WINS" + `\nUSER SCORE: ${playerScore}\nCOMPUTER SCORE: ${computerScore}`);
-                } else if ((userChoice === "Scissors") && (computerChoice === "Paper")) {
-                    playerScore++;
-                    alert("USER CHOSE: " + userChoice + "\nCOMPUTER CHOSE: " + computerChoice + "\nUSER WINS" + `\nUSER SCORE: ${playerScore}\nCOMPUTER SCORE: ${computerScore}`);
-                }
-
-                console.log(computerScore);
-                console.log(playerScore);
-            }
-        }
-
-        game();
-
-    </script>
+    <script src="game.js"></script>
     
 </body>
 </html>
